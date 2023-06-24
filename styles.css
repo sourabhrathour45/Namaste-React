@@ -1,4 +1,39 @@
+*{
+    margin:0
+}
+
 body{
-    background-color: rgb(18, 36, 52);
-    color:white
+    background-color: #FFF6E7;
+    color: #173D16;
+    font-family: 'Inter';
+
+}
+
+#logo{
+    width:7rem;
+    border-radius: 4rem;
+    margin: 1.4rem 0 0 3rem ;
+    box-shadow: 2px 2px 10px 2px #8c8c8c;
+}
+
+#header {
+    display:flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    list-style-type: none;
+    margin-top: 3.5rem;
+    margin-right: 7rem;
+}
+
+nav ul li {
+    margin-left: 2rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+    cursor:grab;
+}
+
+#nav-links{
+    display:flex;
 }
