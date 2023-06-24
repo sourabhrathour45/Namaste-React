@@ -1,39 +1,69 @@
-*{
-    margin:0
+* {
+  margin: 0;
 }
 
-body{
-    background-color: #FFF6E7;
-    color: #173D16;
-    font-family: 'Inter';
-
+body {
+  background-color: #fff6e7;
+  color: #173d16;
+  font-family: "Inter";
 }
 
-#logo{
-    width:7rem;
-    border-radius: 4rem;
-    margin: 1.4rem 0 0 3rem ;
-    box-shadow: 2px 2px 10px 2px #8c8c8c;
+#logo {
+  width: 7rem;
+  border-radius: 4rem;
+  margin: 1.4rem 0 0 3rem;
+  box-shadow: 2px 2px 10px 2px #8c8c8c;
 }
 
 #header {
-    display:flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav ul {
-    list-style-type: none;
-    margin-top: 3.5rem;
-    margin-right: 7rem;
+  list-style-type: none;
+  margin-top: 3.5rem;
+  margin-right: 7rem;
 }
 
 nav ul li {
-    margin-left: 2rem;
-    font-weight: 600;
-    font-size: 1.6rem;
-    cursor:grab;
+  margin-left: 2rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  cursor: grab;
 }
 
-#nav-links{
-    display:flex;
+#nav-links {
+  display: flex;
+}
+
+.card {
+  margin: 2rem;
+  width: 15rem;
+  border: 1px solid #D5D5D5;
+}
+
+.card:hover{
+    border: 1px solid #fff6e7;
+    box-shadow: 0px 0.5px 12px 0.5px #8c8c8c;
+}
+
+#res-card-img {
+  margin: 1rem;
+  width: 13rem;
+}
+
+.card-description {
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+#card-description-secondary{
+    width:fit-content;
+    font-weight: 300;
+    margin-bottom: 2rem;
+}
+
+#card-container {
+    display: flex;
 }
