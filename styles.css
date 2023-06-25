@@ -30,7 +30,7 @@ nav ul li {
   margin-left: 2rem;
   font-weight: 600;
   font-size: 1.6rem;
-  cursor: grab;
+  cursor: pointer;
 }
 
 #nav-links {
@@ -82,7 +82,7 @@ input {
     background-color: #DED1BB;
     width: 46rem;
     height: 3.5rem;
-    margin: 2rem 0 2rem 0;
+    margin: 2rem 8rem 2rem 0;
     border: 0px;
     border-radius: 2rem;
   }

@@ -24,7 +24,7 @@ const Cards = (props) => {
         ></img>
         <h3 className="card-description">{name}</h3>
         <p className="card-description">{cuisines.join(", ")}</p>
-        <div id="card-description-secondary" class="card-description">
+        <div id="card-description-secondary" className="card-description">
           <span>{avgRating + " ★"}</span>
           <span> • </span>
           <span>{deliveryTime + " minutes"}</span>
