@@ -46,6 +46,8 @@ nav ul li {
 .card:hover{
     border: 1px solid #fff6e7;
     box-shadow: 0px 0.5px 12px 0.5px #8c8c8c;
+    cursor: pointer;
+    background-color: #fcf1dd;
 }
 
 #res-card-img {
@@ -66,4 +68,43 @@ nav ul li {
 
 #card-container {
     display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    align-self: center;
 }
+
+.container-div{
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    background-color: #DED1BB;
+    width: 46rem;
+    height: 3.5rem;
+    margin: 2rem 0 2rem 0;
+    border: 0px;
+    border-radius: 2rem;
+  }
+
+  input::placeholder {
+    font-size: 1rem;
+    padding-left: 2rem;
+  }
+  
+
+  input[type="search"]:focus {
+    outline: none;
+    font-size: 1rem;
+    padding:1rem;
+    padding-left: 2rem;
+    color:#173d16;
+  }
+
+  input[type="search"]:focus::placeholder {
+    transform: translateX(-1.85rem);
+  }
+
+  #toggle-container{
+    margin: 2.8rem 4rem 0 0;
+  }
