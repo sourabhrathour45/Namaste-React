@@ -6,6 +6,7 @@ body {
   background-color: #fff6e7;
   color: #173d16;
   font-family: "Inter";
+  width:100vw
 }
 
 #logo {
@@ -84,11 +85,15 @@ nav ul li {
 
 input {
   background-color: #ded1bb;
+  background-image: url("https://drive.google.com/uc?export=download&id=1Rn6ALtOrjbwWb_f_fV3Ic1lw81zb5tPa");
   width: 46rem;
   height: 3.5rem;
-  margin: 2rem 8rem 2rem 0;
+  margin: 2rem 4rem 2rem 0;
   border: 0px;
   border-radius: 2rem;
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  background-position: 42rem center;
 }
 
 input::placeholder {
@@ -177,7 +182,7 @@ align-items: center;
 
 .login-btn{
   background-color: #fffbf2 ;
-  padding:0 1rem 0 1rem;
+  padding: 0.5rem 1rem 0.5rem 1rem ;
   margin: 0 0.5rem 0 2rem;
   border:0.2px solid #8c8c8c;
   border-radius: 4rem;
@@ -196,6 +201,16 @@ align-items: center;
   align-items: center;
 }
 
-.search-icon{
-  font-size: large;
+.search-btn{
+  color: white;
+}
+
+.footer-div{
+  height:30rem;
+  width:100%;
+  background-color: #ded1bb;
+  margin-top: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

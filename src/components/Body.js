@@ -2,12 +2,13 @@ import Cards from "./Cards";
 import { useState, useEffect } from "react";
 import Toggle from "react-styled-toggle";
 import Shimmer from "./Shimmer";
-import SearchIcon from '@mui/icons-material/Search';
+import Button from "@mui/material/Button";
+import SearchIcon from "@mui/icons-material/Search";
 let toggleOn,
   showingTopRes = false,
   json;
 
-export const Search = () => {
+export const Search = (props) => {
   return (
     <div className="container-div">
       <div id="toggle-container">
@@ -17,18 +18,32 @@ export const Search = () => {
           backgroundColorChecked="#20551E"
         ></Toggle>
       </div>
-      <input type="search" name="search" placeholder="Search..."></input>
-      <div className="search-icon-container">
-      <SearchIcon fontSize={"large"} className="search-icon"></SearchIcon>
-      </div>
- 
-
+      <input
+        type="search"
+        name="search"
+        placeholder="Search..."
+        value={props?.searchTxt}
+        onChange={(event) => {
+          props.setSearchTxt(event.target.value);
+        }}
+        onKeyUp={props?.filterTxt}
+      ></input>
     </div>
   );
 };
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+
+  const [searchText, setSearchText] = useState("");
+
+  const filterText = () => {
+    let searchFilteredResults = listOfRestaurants.filter((res) =>
+      res.data.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setFilteredRestaurants(searchFilteredResults);
+  };
 
   useEffect(() => {
     fetchData();
@@ -36,14 +51,47 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.2370677&lng=85.7455138&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING"
     );
 
     json = await data.json();
 
     console.log(json);
     setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   };
+
+  if (listOfRestaurants?.length === 0) {
+    return (
+      <>
+        <Search />
+        <Shimmer />
+      </>
+    );
+  }
+
+  if (
+    listOfRestaurants.filter((res) =>
+      res.data.name.toLowerCase().includes(searchText.toLowerCase())
+    ).length === 0
+  ) {
+    return (
+      <>
+        <Search
+          searchTxt={searchText}
+          setSearchTxt={setSearchText}
+          filterTxt={filterText}
+        />
+
+        <div className="all-closed-container">
+          <h1 className="all-closed"> No Restaurants found buddy :( </h1>
+          <h2>Mai Dhoondhne ko zamane me jab khana niklaa...</h2>
+          <br></br>
+          <h2>Pata chala ki galat leke mai pata niklaaa 😢</h2>
+        </div>
+      </>
+    );
+  }
 
   toggleOn = () => {
     showingTopRes = !showingTopRes;
@@ -51,13 +99,9 @@ const Body = () => {
       const filteredList = listOfRestaurants?.filter(
         (res) => res.data.avgRating > 4
       );
-      setListOfRestaurants(filteredList);
-    } else setListOfRestaurants(json.data?.cards[2]?.data?.data?.cards);
+      setFilteredRestaurants(filteredList);
+    } else setFilteredRestaurants(json.data?.cards[2]?.data?.data?.cards);
   };
-
-  if (listOfRestaurants?.length === 0) {
-    return <Shimmer />;
-  }
 
   if (json?.data?.cards[0]?.data?.data?.totalOpenRestaurants === 0) {
     console.log("All closed");
@@ -70,13 +114,20 @@ const Body = () => {
   }
 
   return (
-    <div className="container-div">
-      <div id="card-container">
-        {listOfRestaurants?.map((restaurant) => (
-          <Cards key={restaurant.data.uuid} resData={restaurant} />
-        ))}
+    <>
+      <Search
+        searchTxt={searchText}
+        setSearchTxt={setSearchText}
+        filterTxt={filterText}
+      />
+      <div className="container-div">
+        <div id="card-container">
+          {filteredRestaurants?.map((restaurant) => (
+            <Cards key={restaurant.data.uuid} resData={restaurant} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
