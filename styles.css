@@ -33,6 +33,10 @@ nav ul li {
   cursor: pointer;
 }
 
+#logo-container{
+  height:10rem
+}
+
 #nav-links {
   display: flex;
 }
@@ -40,14 +44,14 @@ nav ul li {
 .card {
   margin: 2rem;
   width: 15rem;
-  border: 1px solid #D5D5D5;
+  border: 1px solid #d5d5d5;
 }
 
-.card:hover{
-    border: 1px solid #fff6e7;
-    box-shadow: 0px 0.5px 12px 0.5px #8c8c8c;
-    cursor: pointer;
-    background-color: #fcf1dd;
+.card:hover {
+  border: 1px solid #fff6e7;
+  box-shadow: 0px 0.5px 12px 0.5px #8c8c8c;
+  cursor: pointer;
+  background-color: #fcf1dd;
 }
 
 #res-card-img {
@@ -56,55 +60,142 @@ nav ul li {
 }
 
 .card-description {
-    margin-left: 1rem;
-    margin-top: 1rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  padding-right: 1rem;
 }
 
-#card-description-secondary{
-    width:fit-content;
-    font-weight: 300;
-    margin-bottom: 2rem;
+#card-description-secondary {
+  width: fit-content;
+  font-weight: 300;
+  margin-bottom: 2rem;
 }
 
 #card-container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 70%;
-    align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 65%;
 }
 
-.container-div{
-    display: flex;
-    justify-content: center;
+.container-div {
+  display: flex;
+  justify-content: center;
 }
 
 input {
-    background-color: #DED1BB;
-    width: 46rem;
-    height: 3.5rem;
-    margin: 2rem 8rem 2rem 0;
-    border: 0px;
-    border-radius: 2rem;
-  }
+  background-color: #ded1bb;
+  width: 46rem;
+  height: 3.5rem;
+  margin: 2rem 8rem 2rem 0;
+  border: 0px;
+  border-radius: 2rem;
+}
 
-  input::placeholder {
-    font-size: 1rem;
-    padding-left: 2rem;
-  }
-  
+input::placeholder {
+  font-size: 1rem;
+  padding-left: 2rem;
+}
 
-  input[type="search"]:focus {
-    outline: none;
-    font-size: 1rem;
-    padding:1rem;
-    padding-left: 2rem;
-    color:#173d16;
-  }
+input[type="search"]:focus {
+  outline: none;
+  font-size: 1rem;
+  padding: 1rem;
+  padding-left: 2rem;
+  color: #173d16;
+}
 
-  input[type="search"]:focus::placeholder {
-    transform: translateX(-1.85rem);
-  }
+input[type="search"]:focus::placeholder {
+  transform: translateX(-1.85rem);
+}
 
-  #toggle-container{
-    margin: 2.8rem 4rem 0 0;
-  }
+#toggle-container {
+  margin: 2.8rem 4rem 0 0;
+}
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 65%;
+}
+
+.shimmer-card {
+  margin: 2rem;
+  width: 15rem;
+  height: 20rem;
+  border: 1px solid #d5d5d5;
+  background-color: #ded1bb;
+}
+
+.shimmer-card-image {
+  width: 13rem;
+  height: 8rem;
+  margin: 1rem;
+  background-color: #fffbf2;
+}
+
+.shimmer-title {
+  width: 11rem;
+  height: 1rem;
+  border-radius: 0.3rem;
+  margin-left: 1rem;
+  margin-top: 3rem;
+  padding-right: 1rem;
+  background-color: #fffbf2;
+}
+
+.shimmer-card-description {
+  width: 9rem;
+  height: 0.8rem;
+  border-radius: 0.3rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  padding-right: 1rem;
+  background-color: #fffbf2;
+}
+
+.shimmer-card-description-secondary {
+  width: 7rem;
+  height: 0.8rem;
+  border-radius: 0.3rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  padding-right: 1rem;
+  background-color: #fffbf2;
+}
+
+.all-closed-container{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.all-closed{
+  margin-top: 10rem;
+  margin-bottom: 3rem;
+}
+
+.login-btn{
+  background-color: #fffbf2 ;
+  padding:0 1rem 0 1rem;
+  margin: 0 0.5rem 0 2rem;
+  border:0.2px solid #8c8c8c;
+  border-radius: 4rem;
+  cursor: pointer;
+  font-size: 0.9em;
+  width:5rem;
+}
+
+.login-btn:hover{
+  background-color: #173d16;
+  color: #fff6e7 ;
+}
+
+.search-icon-container{
+  display: flex;
+  align-items: center;
+}
+
+.search-icon{
+  font-size: large;
+}

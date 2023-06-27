@@ -1,12 +1,21 @@
-import { LOGO_URL } from "../ultils/constants";
-// {LOGO_URL} Convention used in named exports
+import Logo from "./Logo";
+import { useState } from "react";
 
 const Header = () => {
+
+  const [loginText,setLoginText] = useState("Login")
+
+  const changeLogState = () => {
+    if (loginText === "Login") {
+      setLoginText("Logout")
+    } else setLoginText("Login")
+  };
+
+
+
   return (
     <nav id="header">
-      <div id="image-container">
-        <img id="logo" alt="logo" src={LOGO_URL}></img>
-      </div>
+      <Logo />
       <div>
         <ul id="nav-links">
           <li>Home</li>
@@ -14,6 +23,9 @@ const Header = () => {
           <li>Your Orders</li>
           <li>About Us</li>
           <li>Cart</li>
+          <button className="login-btn" onClick={changeLogState}>
+            {loginText}
+          </button>
         </ul>
       </div>
     </nav>
