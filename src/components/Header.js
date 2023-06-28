@@ -2,16 +2,13 @@ import Logo from "./Logo";
 import { useState } from "react";
 
 const Header = () => {
-
-  const [loginText,setLoginText] = useState("Login")
+  const [loginText, setLoginText] = useState("Login");
 
   const changeLogState = () => {
     if (loginText === "Login") {
-      setLoginText("Logout")
-    } else setLoginText("Login")
+      setLoginText("Logout");
+    } else setLoginText("Login");
   };
-
-
 
   return (
     <nav id="header">

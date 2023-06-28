@@ -2,8 +2,7 @@ import Cards from "./Cards";
 import { useState, useEffect } from "react";
 import Toggle from "react-styled-toggle";
 import Shimmer from "./Shimmer";
-import Button from "@mui/material/Button";
-import SearchIcon from "@mui/icons-material/Search";
+
 let toggleOn,
   showingTopRes = false,
   json;
@@ -35,7 +34,6 @@ export const Search = (props) => {
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-
   const [searchText, setSearchText] = useState("");
 
   const filterText = () => {
@@ -51,7 +49,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.2370677&lng=85.7455138&page_type=DESKTOP_WEB_LISTING"
     );
 
     json = await data.json();

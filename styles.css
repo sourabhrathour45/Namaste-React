@@ -6,7 +6,7 @@ body {
   background-color: #fff6e7;
   color: #173d16;
   font-family: "Inter";
-  width:100vw
+  width: 99vw;
 }
 
 #logo {
@@ -34,8 +34,8 @@ nav ul li {
   cursor: pointer;
 }
 
-#logo-container{
-  height:10rem
+#logo-container {
+  height: 10rem;
 }
 
 #nav-links {
@@ -113,6 +113,7 @@ input[type="search"]:focus::placeholder {
   transform: translateX(-1.85rem);
 }
 
+
 #toggle-container {
   margin: 2.8rem 4rem 0 0;
 }
@@ -168,46 +169,46 @@ input[type="search"]:focus::placeholder {
   background-color: #fffbf2;
 }
 
-.all-closed-container{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
+.all-closed-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.all-closed{
+.all-closed {
   margin-top: 10rem;
   margin-bottom: 3rem;
 }
 
-.login-btn{
-  background-color: #fffbf2 ;
-  padding: 0.5rem 1rem 0.5rem 1rem ;
+.login-btn {
+  background-color: #fffbf2;
+  padding: 0.5rem 1rem 0.5rem 1rem;
   margin: 0 0.5rem 0 2rem;
-  border:0.2px solid #8c8c8c;
+  border: 0.2px solid #8c8c8c;
   border-radius: 4rem;
   cursor: pointer;
   font-size: 0.9em;
-  width:5rem;
+  width: 5rem;
 }
 
-.login-btn:hover{
+.login-btn:hover {
   background-color: #173d16;
-  color: #fff6e7 ;
+  color: #fff6e7;
 }
 
-.search-icon-container{
+.search-icon-container {
   display: flex;
   align-items: center;
 }
 
-.search-btn{
+.search-btn {
   color: white;
 }
 
-.footer-div{
-  height:30rem;
-  width:100%;
+.footer-div {
+  height: 30rem;
+  width: 100%;
   background-color: #ded1bb;
   margin-top: 7rem;
   display: flex;
