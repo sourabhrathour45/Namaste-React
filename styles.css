@@ -2,6 +2,14 @@
   margin: 0;
 }
 
+#link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+
+}
+
 body {
   background-color: #fff6e7;
   color: #173d16;
@@ -42,10 +50,13 @@ nav ul li {
   display: flex;
 }
 
+
 .card {
   margin: 2rem;
   width: 15rem;
   border: 1px solid #d5d5d5;
+  
+
 }
 
 .card:hover {

@@ -2,6 +2,7 @@ import Cards from "./Cards";
 import { useState, useEffect } from "react";
 import Toggle from "react-styled-toggle";
 import Shimmer from "./Shimmer";
+import {Link} from "react-router-dom"
 
 let toggleOn,
   showingTopRes = false,
@@ -49,7 +50,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=20.2370677&lng=85.7455138&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&page_type=DESKTOP_WEB_LISTING "
     );
 
     json = await data.json();
@@ -69,8 +70,8 @@ const Body = () => {
   }
 
   if (
-    listOfRestaurants.filter((res) =>
-      res.data.name.toLowerCase().includes(searchText.toLowerCase())
+    listOfRestaurants?.filter((res) =>
+      res?.data?.name?.toLowerCase().includes(searchText.toLowerCase())
     ).length === 0
   ) {
     return (
@@ -121,7 +122,7 @@ const Body = () => {
       <div className="container-div">
         <div id="card-container">
           {filteredRestaurants?.map((restaurant) => (
-            <Cards key={restaurant.data.uuid} resData={restaurant} />
+           <Link id="link" key={restaurant.data.id} to={"/restaurants/" + restaurant.data.id}> <Cards resData={restaurant} /> </Link>
           ))}
         </div>
       </div>

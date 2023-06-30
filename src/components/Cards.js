@@ -13,6 +13,7 @@ const Cards = (props) => {
     } = resData?.data;
   
     return (
+     
       <div className="card">
         <img
           id="res-card-img"
@@ -32,6 +33,7 @@ const Cards = (props) => {
           <span>{costForTwoString}</span>
         </div>
       </div>
+   
     );
   };
   
