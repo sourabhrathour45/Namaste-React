@@ -17,14 +17,14 @@ const Header = () => {
       <div>
         <ul id="nav-links">
           <li>
-            <Link to="/">Home</Link>
+            <Link class="navbar-Links" to="/">Home</Link>
           </li>
           <li>Your Orders</li>
           <li>
-            <Link to="/about">About Us</Link>
+            <Link class="navbar-Links" to="/about">About Us</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link class="navbar-Links" to="/contact">Contact</Link>
           </li>
           <li>
              Cart

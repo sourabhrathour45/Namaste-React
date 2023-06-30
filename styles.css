@@ -2,6 +2,13 @@
   margin: 0;
 }
 
+.navbar-Links{
+  display: flex;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 #link {
   color: inherit;
   text-decoration: none;
