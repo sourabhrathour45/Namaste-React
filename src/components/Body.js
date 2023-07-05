@@ -2,7 +2,8 @@ import Cards from "./Cards";
 import { useState, useEffect } from "react";
 import Toggle from "react-styled-toggle";
 import Shimmer from "./Shimmer";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../ultils/useOnlineStatus";
 
 let toggleOn,
   showingTopRes = false,
@@ -36,6 +37,7 @@ const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const onlineStatus = useOnlineStatus();
 
   const filterText = () => {
     let searchFilteredResults = listOfRestaurants.filter((res) =>
@@ -60,6 +62,23 @@ const Body = () => {
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   };
 
+
+// Checking Online Status
+  if (onlineStatus === false) {
+    return (
+      <>
+        <Search />
+        <div className="all-closed-container">
+          <h1 className="all-closed" >
+            Oops! Looks like you are offline buddy 🤯
+          </h1>
+          <h2>Just get some bloody internet in your veins.</h2>
+        </div>
+      </>
+    );
+  }
+
+  // Displaying Shimmer
   if (listOfRestaurants?.length === 0) {
     return (
       <>
@@ -69,6 +88,7 @@ const Body = () => {
     );
   }
 
+  // Displaying error message when nothing found on search
   if (
     listOfRestaurants?.filter((res) =>
       res?.data?.name?.toLowerCase().includes(searchText.toLowerCase())
@@ -92,6 +112,7 @@ const Body = () => {
     );
   }
 
+  // Refactor the code to make it more modular and avoid using global variables
   toggleOn = () => {
     showingTopRes = !showingTopRes;
     if (showingTopRes === true) {
@@ -102,15 +123,6 @@ const Body = () => {
     } else setFilteredRestaurants(json.data?.cards[2]?.data?.data?.cards);
   };
 
-  if (json?.data?.cards[0]?.data?.data?.totalOpenRestaurants === 0) {
-    console.log("All closed");
-    return (
-      <div className="all-closed-container">
-        <h1 className="all-closed">Oops! No Restaurants open right now.</h1>
-        <h2>You better cook food at home :)</h2>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -122,7 +134,14 @@ const Body = () => {
       <div className="container-div">
         <div id="card-container">
           {filteredRestaurants?.map((restaurant) => (
-           <Link id="link" key={restaurant.data.id} to={"/restaurants/" + restaurant.data.id}> <Cards resData={restaurant} /> </Link>
+            <Link
+              id="link"
+              key={restaurant.data.id}
+              to={"/restaurants/" + restaurant.data.id}
+            >
+              {" "}
+              <Cards resData={restaurant} />{" "}
+            </Link>
           ))}
         </div>
       </div>

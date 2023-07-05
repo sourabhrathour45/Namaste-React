@@ -2,6 +2,7 @@ import React from "react";
 
 class UserClass extends React.Component {
   constructor(props) {
+
     super(props);
 
     this.state = {
@@ -11,7 +12,7 @@ class UserClass extends React.Component {
   }
 
   componentDidMount(){
-    console.log("API is called in this ")
+
   }
 
   render() {

@@ -1,38 +1,15 @@
-import Shimmer from "./Shimmer";
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../ultils/constants";
+import useRestaurantMenu from "../ultils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
+  let { resID } = useParams();
 
-
-
-  let { resID }  = useParams();
-
-  console.log(resID)
-
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    const data = await fetch(MENU_API+resID);
-
-    const json = await data.json();
-
-    console.log(json);
-
-    setResInfo(json?.data);
-  };
+  const resInfo = useRestaurantMenu(resID);
 
   if (resInfo === null) {
     return (
       <>
-        <div className="container-div">
-          {/* <img src="https://indianmemetemplates.com/wp-content/uploads/ruko-zara-sabar-karo.jpg"></img> */}
-            Please Wait... Fetching the Menu
-        </div>
+        <div className="container-div">Please Wait... Fetching the Menu</div>
       </>
     );
   }
@@ -53,7 +30,9 @@ const RestaurantMenu = () => {
         <ul>
           {itemCards?.map((item) => (
             <li key={item?.card?.info?.id}>
-              {item?.card?.info?.name} : ₹ {item?.card?.info?.price/100 || item?.card?.info?.defaultPrice/100}
+              {item?.card?.info?.name} : ₹{" "}
+              {item?.card?.info?.price / 100 ||
+                item?.card?.info?.defaultPrice / 100}
             </li>
           ))}
         </ul>
