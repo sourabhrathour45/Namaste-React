@@ -1,5 +1,5 @@
 {
-  "homepage": "http://sourabhrathour45/Namaste-React",
+  
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "Experimentation project to learn react",
@@ -18,7 +18,8 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sourabhrathour45/Namaste-React/issues"
-  }, 
+  },
+  "homepage": "https://github.com/sourabhrathour45/Namaste-React#readme",
   "devDependencies": {
     "gh-pages": "^5.0.0",
     "parcel": "^2.9.2",
