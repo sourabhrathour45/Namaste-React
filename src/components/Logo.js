@@ -3,8 +3,8 @@ import { LOGO_URL } from "../ultils/constants";
 
 const Logo = () => {
   return (
-    <div id="logo-container">
-      <img id="logo" alt="logo" src={LOGO_URL}></img>
+    <div className="w-30 h-20">
+      <img className="w-30 h-20 ml-4" alt="logo" src={LOGO_URL}></img>
     </div>
   );
 };

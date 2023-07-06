@@ -11,15 +11,16 @@ let toggleOn,
 
 export const Search = (props) => {
   return (
-    <div className="container-div">
-      <div id="toggle-container">
+    <div className="flex w-11/12 justify-center mt-16 items-center ">
+      <div className="hidden lg:block">
         <Toggle
           onChange={() => toggleOn()}
           labelLeft="Top Rated Restaurants"
-          backgroundColorChecked="#20551E"
+          backgroundColorChecked="#9a3412"
         ></Toggle>
       </div>
       <input
+        className="lg:w-1/3 w-2/3 h-14 bg-[#FFF6E7] p-4 rounded-xl ml-16 drop-shadow-md focus:outline-none"
         type="search"
         name="search"
         placeholder="Search..."
@@ -62,14 +63,13 @@ const Body = () => {
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   };
 
-
-// Checking Online Status
+  // Checking Online Status
   if (onlineStatus === false) {
     return (
       <>
         <Search />
         <div className="all-closed-container">
-          <h1 className="all-closed" >
+          <h1 className="all-closed">
             Oops! Looks like you are offline buddy 🤯
           </h1>
           <h2>Just get some bloody internet in your veins.</h2>
@@ -102,11 +102,20 @@ const Body = () => {
           filterTxt={filterText}
         />
 
-        <div className="all-closed-container">
-          <h1 className="all-closed"> No Restaurants found buddy :( </h1>
-          <h2>Mai Dhoondhne ko zamane me jab khana niklaa...</h2>
-          <br></br>
-          <h2>Pata chala ki galat leke mai pata niklaaa 😢</h2>
+        <div className="flex justify-center mt-36">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-orange-950 ">
+              {" "}
+              No Restaurants found buddy :({" "}
+            </h1>
+            <br></br>
+            <h2 className="text-xl text-slate-800">
+              Mai Dhoondhne ko zamane me jab khana niklaa...
+            </h2>
+            <h2 className="text-xl text-slate-800 mt-4">
+              Pata chala ki galat leke mai pata niklaaa 😢
+            </h2>
+          </div>
         </div>
       </>
     );
@@ -123,7 +132,6 @@ const Body = () => {
     } else setFilteredRestaurants(json.data?.cards[2]?.data?.data?.cards);
   };
 
-
   return (
     <>
       <Search
@@ -131,11 +139,11 @@ const Body = () => {
         setSearchTxt={setSearchText}
         filterTxt={filterText}
       />
-      <div className="container-div">
-        <div id="card-container">
+      <div className="flex justify-center mt-12 w-screen">
+        <div className="flex flex-wrap md:w-2/3">
           {filteredRestaurants?.map((restaurant) => (
             <Link
-              id="link"
+              className="flex"
               key={restaurant.data.id}
               to={"/restaurants/" + restaurant.data.id}
             >

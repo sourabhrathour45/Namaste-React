@@ -12,24 +12,22 @@ const Header = () => {
   };
 
   return (
-    <nav id="header">
+    <nav className="flex justify-between items-center w-screen bg-[#FFF6E7] border-b border-orange-200 shadow-lg font-[400] text-orange-950">
       <Logo />
-      <div>
-        <ul id="nav-links">
-          <li>
-            <Link class="navbar-Links" to="/">Home</Link>
+      <div className="mr-14">
+        <ul className=" hidden lg:flex lg:text-xl items-center font-Inter">
+          <li className="px-6">
+            <Link to="/">Home</Link>
           </li>
-          <li>Your Orders</li>
-          <li>
-            <Link class="navbar-Links" to="/about">About Us</Link>
+          <li className="px-6">Your Orders</li>
+          <li className="px-6">
+            <Link to="/about">About Us</Link>
           </li>
-          <li>
-            <Link class="navbar-Links" to="/contact">Contact</Link>
+          <li className="px-6">
+            <Link to="/contact">Contact</Link>
           </li>
-          <li>
-             Cart
-          </li>
-          <button className="login-btn" onClick={changeLogState}>
+          <li className="px-6">Cart</li>
+          <button className="px-4 bg-orange-700 hover:bg-orange-800 shadow-sm w-24 text-center text-white rounded-lg text-lg p-1 ml-4" onClick={changeLogState}>
             {loginText}
           </button>
         </ul>

@@ -1,9 +1,12 @@
 {
+  "homepage":"http://sourabhrathour45.github.io/Namaste-React ",
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "Experimentation project to learn react",
   "scripts": {
     "start": "parcel index.html",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "parcel build index.html",
     "test": "jest"
   },
@@ -16,10 +19,12 @@
   "bugs": {
     "url": "https://github.com/sourabhrathour45/Namaste-React/issues"
   },
-  "homepage": "https://github.com/sourabhrathour45/Namaste-React#readme",
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "parcel": "^2.9.2",
-    "process": "^0.11.10"
+    "postcss": "^8.4.24",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3.2"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
