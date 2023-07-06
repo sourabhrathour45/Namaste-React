@@ -1,5 +1,5 @@
 {
-  "homepage":"http://sourabhrathour45.github.io/Namaste-React ",
+  "homepage": "http://sourabhrathour45/Namaste-React",
   "name": "namaste-react",
   "version": "1.0.0",
   "description": "Experimentation project to learn react",
@@ -18,7 +18,7 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/sourabhrathour45/Namaste-React/issues"
-  },
+  }, 
   "devDependencies": {
     "gh-pages": "^5.0.0",
     "parcel": "^2.9.2",
@@ -31,6 +31,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.6",
+    "browserslist": "^4.21.9",
     "material-icons": "^1.13.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -38,6 +39,7 @@
     "react-styled-toggle": "^1.0.18"
   },
   "browserslist": [
-    "last two versions"
+   "defaults and supports es6-module",
+   "maintained node versions"
   ]
 }
