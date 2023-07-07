@@ -53,7 +53,7 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING "
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING "
     );
 
     json = await data.json();
@@ -63,13 +63,14 @@ const Body = () => {
     setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   };
 
-  // Checking Online Status
+
+// Checking Online Status
   if (onlineStatus === false) {
     return (
       <>
         <Search />
         <div className="all-closed-container">
-          <h1 className="all-closed">
+          <h1 className="all-closed" >
             Oops! Looks like you are offline buddy 🤯
           </h1>
           <h2>Just get some bloody internet in your veins.</h2>
@@ -104,18 +105,12 @@ const Body = () => {
 
         <div className="flex justify-center mt-36">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-orange-950 ">
-              {" "}
-              No Restaurants found buddy :({" "}
-            </h1>
-            <br></br>
-            <h2 className="text-xl text-slate-800">
-              Mai Dhoondhne ko zamane me jab khana niklaa...
-            </h2>
-            <h2 className="text-xl text-slate-800 mt-4">
-              Pata chala ki galat leke mai pata niklaaa 😢
-            </h2>
+          <h1 className="text-4xl font-bold text-orange-950 "> No Restaurants found buddy :( </h1>
+          <br></br>
+          <h2 className="text-xl text-slate-800">Mai Dhoondhne ko zamane me jab khana niklaa...</h2>
+          <h2 className="text-xl text-slate-800 mt-4">Pata chala ki galat leke mai pata niklaaa 😢</h2>
           </div>
+   
         </div>
       </>
     );
@@ -132,6 +127,7 @@ const Body = () => {
     } else setFilteredRestaurants(json.data?.cards[2]?.data?.data?.cards);
   };
 
+
   return (
     <>
       <Search
@@ -139,7 +135,7 @@ const Body = () => {
         setSearchTxt={setSearchText}
         filterTxt={filterText}
       />
-      <div className="flex justify-center mt-12 w-screen">
+      <div className="flex justify-center mt-12 w-screen" >
         <div className="flex flex-wrap md:w-2/3">
           {filteredRestaurants?.map((restaurant) => (
             <Link
