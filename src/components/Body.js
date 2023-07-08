@@ -11,7 +11,7 @@ let toggleOn,
 
 export const Search = (props) => {
   return (
-    <div className="flex w-full lg:w-11/12 justify-center mt-16 items-center ">
+    <div className="flex w-full lg:w-11/12 justify-center mt-12 lg:mt-16 items-center ">
       <div className="hidden lg:block">
         <Toggle
           onChange={() => toggleOn()}
@@ -135,7 +135,7 @@ const Body = () => {
         setSearchTxt={setSearchText}
         filterTxt={filterText}
       />
-      <div className="flex justify-center mt-12 w-screen" >
+      <div className="flex justify-center mt-4 lg:mt-12 w-screen" >
         <div className="flex flex-wrap md:w-2/3">
           {filteredRestaurants?.map((restaurant) => (
             <Link
