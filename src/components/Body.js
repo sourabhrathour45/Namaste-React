@@ -11,7 +11,7 @@ let toggleOn,
 
 export const Search = (props) => {
   return (
-    <div className="flex w-11/12 justify-center mt-16 items-center ">
+    <div className="flex w-full lg:w-11/12 justify-center mt-16 items-center ">
       <div className="hidden lg:block">
         <Toggle
           onChange={() => toggleOn()}
@@ -20,7 +20,7 @@ export const Search = (props) => {
         ></Toggle>
       </div>
       <input
-        className="lg:w-1/3 w-2/3 h-14 bg-[#FFF6E7] p-4 rounded-xl ml-16 drop-shadow-md focus:outline-none"
+        className="lg:w-1/3 w-11/12 h-14 bg-[#FFF6E7] p-4 rounded-xl mx-8 lg:ml-16 drop-shadow-md focus:outline-none"
         type="search"
         name="search"
         placeholder="Search..."
