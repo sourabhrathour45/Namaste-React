@@ -13,8 +13,8 @@ const Cards = (props) => {
   } = resData?.data;
 
   return (
-    <div className=" lg:w-56 w-11/12 p-4 mx-8 my-8 rounded-lg bg-[#FFF6E7] drop-shadow-md hover:drop-shadow-xl hover:bg-[#FFFBF2]">
-      <img alt="card" src={CDN_URL + cloudinaryImageId}></img>
+    <div className=" lg:w-56 w-11/12 p-4 mx-8  my-8 rounded-lg bg-[#FFF6E7] drop-shadow-md hover:drop-shadow-xl hover:bg-[#FFFBF2]">
+      <img  alt="card" src={CDN_URL + cloudinaryImageId}></img>
       <h3 className="text-lg font-semibold my-4 ">{name}</h3>
       <p className="text-slate-700 text-sm">{cuisines.join(", ")}</p>
       <div className="mt-4">
@@ -27,5 +27,21 @@ const Cards = (props) => {
     </div>
   );
 };
+
+export const withPromotedLabel = (Cards)=>{
+ return (props)=>{
+  return(
+<>
+  <div className="relative">
+    <Cards {...props} />
+    <label className="absolute text-[0.75rem] top-12 left-8 px-2 py-1 m-2 text-white font-[500] backdrop-filter backdrop-blur-lg rounded-lg">
+        Sponsered
+    </label>
+  </div>
+</>
+
+  )
+ }
+}
 
 export default Cards;

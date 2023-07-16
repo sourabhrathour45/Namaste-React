@@ -12,7 +12,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="flex justify-between items-center w-screen bg-[#FFF6E7] border-b border-orange-200 shadow-lg font-[400] text-orange-950">
+    <nav className="flex justify-between items-center w-screen bg-[#FFF6E7] border-b border-orange-200 shadow-lg font-[400] text-orange-950 ">
       <Logo />
       <div className="mr-14">
         <ul className=" hidden lg:flex lg:text-xl items-center font-Inter">
