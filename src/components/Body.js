@@ -5,6 +5,7 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../ultils/useOnlineStatus";
 
+
 let toggleOn,
   showingTopRes = false,
   json;

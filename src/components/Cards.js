@@ -32,7 +32,7 @@ export const withPromotedLabel = (Cards)=>{
  return (props)=>{
   return(
 <>
-  <div className="relative">
+  <div className="relative w-11/12 lg:w-auto">
     <Cards {...props} />
     <label className="absolute text-[0.75rem] top-12 left-8 px-2 py-1 m-2 text-white font-[500] backdrop-filter backdrop-blur-lg rounded-lg">
         Sponsered
