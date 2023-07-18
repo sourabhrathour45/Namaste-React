@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../ultils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 const RestaurantMenu = () => {
   let { resID } = useParams();
@@ -24,6 +25,15 @@ const RestaurantMenu = () => {
       ?.card ||
     resInfo?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
+  const categories =
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+
+  const itemData = categories.filter(
+    (item) =>
+      item?.card?.card?.["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  );
+
   return (
     <div className="flex justify-center mt-24 w-full">
       <div className="lg:w-2/6 w-11/12">
@@ -32,32 +42,13 @@ const RestaurantMenu = () => {
         <p className="text-slate-700"> {cuisines.join(", ")}</p>
         <br></br>
         <h3 className="text-xl font-bold text-orange-900 bg-orange-200 drop-shadow-lg p-4 rounded-lg text-center">
-          {" "}
-          📍 Menu{" "}
+          📍 Menu
         </h3>
-        <br></br>
-        <br></br>
-        <ul>
-          {itemCards?.map((item) => (
-            <li
-              className=" flex justify-between  text-lg py-8 px-4 font-Inter bg-[#FFF6E7] mb-4 drop-shadow-lg rounded-lg"
-              key={item?.card?.info?.id}
-            >
-              {item?.card?.info?.name} : ₹{" "}
-              {item?.card?.info?.price / 100 ||
-                item?.card?.info?.defaultPrice / 100}
-              {item?.card?.info?.imageId ? (
-                <img
-                  className="overflow-hidden lg:w-36 rounded-sm"
-                  alt="item-img"
-                  src={`https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/${item?.card?.info?.imageId}`}
-                />
-              ) : null}
-            </li>
-          ))}
-        </ul>
+        <RestaurantCategory itemData = {itemData}/>
       </div>
+      
     </div>
+ 
   );
 };
 
