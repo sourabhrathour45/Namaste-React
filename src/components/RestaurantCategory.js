@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DishData from "./DishData";
 
+// uncontrolled component 
 const RestaurantCategory = ({ itemData }) => {
   const [isVisible, setIsVisible] = useState(false);
 
