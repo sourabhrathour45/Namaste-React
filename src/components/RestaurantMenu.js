@@ -1,9 +1,13 @@
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../ultils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
+import {useState} from 'react';
 
 const RestaurantMenu = () => {
   let { resID } = useParams();
+  const [showIndex, setShowIndex] = useState(0)
+  const [isVisible, setIsVisible] = useState(null)
+
 
   const resInfo = useRestaurantMenu(resID);
 
@@ -54,8 +58,11 @@ const RestaurantMenu = () => {
         </div>
       </div>
         <div className="w-[100%] border-b border-dashed border-orange-800"></div>
-        {itemData.map((category)=>
-          <RestaurantCategory key={category?.card?.card?.title} itemData={category?.card?.card}/>
+        {itemData.map((category,index)=>
+          <RestaurantCategory key={category?.card?.card?.title} itemData={category?.card?.card} 
+          isVisible = {index===showIndex? true : false} 
+          setShowIndex = {()=> setShowIndex(index)}
+          />
         )}
       </div>
       

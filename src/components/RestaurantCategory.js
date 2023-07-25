@@ -2,14 +2,13 @@ import { useState } from "react";
 import DishData from "./DishData";
 
 
-const RestaurantCategory = ({ itemData }) => {
-  const [isVisible, setIsVisible] = useState(false);
+const RestaurantCategory = ({ itemData, isVisible, setShowIndex}) => {
+
+  // this is just a comment
 
   const clickHandler = () => {
-    setIsVisible(!isVisible);
+   setShowIndex(); 
   };
-
-  
 
   return (
     <>
