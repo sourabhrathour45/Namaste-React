@@ -3,14 +3,8 @@ import { CDN_URL } from "../ultils/constants";
 
 const Cards = (props) => {
   const { resData } = props;
-  const {
-    name,
-    cuisines,
-    avgRating,
-    deliveryTime,
-    costForTwoString,
-    cloudinaryImageId,
-  } = resData?.data;
+  const { name, cuisines, avgRating, sla, costForTwo, cloudinaryImageId } =
+    resData?.info;
 
   return (
     <div className=" lg:w-60  flex-col relative w-11/12 p-4 mx-8  my-8 rounded-lg bg-[#FFF6E7] drop-shadow-md hover:drop-shadow-xl hover:bg-[#FFFBF2]">
@@ -20,12 +14,17 @@ const Cards = (props) => {
 
       <p className="text-slate-700 text-sm">{cuisines.join(", ")}</p>
 
-      <div className="mt-4 text-slate-900 text-sm">
-        <span>{avgRating + " ★"}</span>
+      <div className="mt-4 text-slate-900 text-sm lg:text-[13px]">
+        <span>
+          {avgRating + " "}
+          <span className="text-green-800">
+            <i className="fa-solid fa-star"></i>{" "}
+          </span>
+        </span>
         <span> • </span>
-        <span>{deliveryTime + " minutes"}</span>
+        <span>{sla?.deliveryTime + " mins"}</span>
         <span> • </span>
-        <span>{costForTwoString}</span>
+        <span>{costForTwo}</span>
       </div>
     </div>
   );
@@ -34,14 +33,13 @@ const Cards = (props) => {
 export const withPromotedLabel = (Cards) => {
   return (props) => {
     return (
-      <> 
+      <>
         <div className="relative flex ">
-        <Cards {...props} />
-        <label className=" absolute top-12 left-8 text-[0.75rem] px-2 py-1 m-2 text-white font-[500] backdrop-filter backdrop-blur-lg rounded-lg">
-          Sponsered
-        </label>
+          <Cards {...props} />
+          <label className=" absolute top-12 left-8 text-[0.75rem] px-2 py-1 m-2 text-white font-[500] backdrop-filter backdrop-blur-lg rounded-lg">
+            Sponsered
+          </label>
         </div>
-
       </>
     );
   };

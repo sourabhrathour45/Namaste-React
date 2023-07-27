@@ -54,14 +54,14 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING"
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     json = await data.json();
 
     console.log(json);
-    setListOfRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-    setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    setListOfRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants || json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
   // Checking Online Status
@@ -89,38 +89,38 @@ const Body = () => {
     );
   }
 
-  // Displaying error message when nothing found on search
-  if (
-    listOfRestaurants?.filter((res) =>
-      res?.data?.name?.toLowerCase().includes(searchText.toLowerCase())
-    ).length === 0
-  ) {
-    return (
-      <>
-        <Search
-          searchTxt={searchText}
-          setSearchTxt={setSearchText}
-          filterTxt={filterText}
-        />
+  //  Displaying error message when nothing found on search
+  // if (
+  //   listOfRestaurants?.filter((res) =>
+  //     res?.data?.name?.toLowerCase().includes(searchText.toLowerCase())
+  //   ).length === 0
+  // ) {
+  //   return (
+  //     <>
+  //       <Search
+  //         searchTxt={searchText}
+  //         setSearchTxt={setSearchText}
+  //         filterTxt={filterText}
+  //       />
 
-        <div className="flex justify-center mt-36">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-orange-950 ">
-              {" "}
-              No Restaurants found buddy :({" "}
-            </h1>
-            <br></br>
-            <h2 className="text-xl text-slate-800">
-              Mai Dhoondhne ko zamane me jab khana niklaa...
-            </h2>
-            <h2 className="text-xl text-slate-800 mt-4">
-              Pata chala ki galat leke mai pata niklaaa 😢
-            </h2>
-          </div>
-        </div>
-      </>
-    );
-  }
+  //       <div className="flex justify-center mt-36">
+  //         <div className="text-center">
+  //           <h1 className="text-4xl font-bold text-orange-950 ">
+  //             {" "}
+  //             No Restaurants found buddy :({" "}
+  //           </h1>
+  //           <br></br>
+  //           <h2 className="text-xl text-slate-800">
+  //             Mai Dhoondhne ko zamane me jab khana niklaa...
+  //           </h2>
+  //           <h2 className="text-xl text-slate-800 mt-4">
+  //             Pata chala ki galat leke mai pata niklaaa 😢
+  //           </h2>
+  //         </div>
+  //       </div>
+  //     </>
+  //   );
+  // }
 
   // Refactor the code to make it more modular and avoid using global variables
   toggleOn = () => {
@@ -145,10 +145,10 @@ const Body = () => {
           {filteredRestaurants?.map((restaurant) => (
             <Link
               className="flex"
-              key={restaurant.data.id}
-              to={"/restaurants/" + restaurant.data.id}
+              key={restaurant.info.id}
+              to={"/restaurants/" + restaurant.info.id}
             >
-              {restaurant.data.promoted ? (
+              {restaurant.info.promoted ? (
                 <PromotedRestaurants resData={restaurant} />
               ) : (
                 <Cards resData={restaurant} />
