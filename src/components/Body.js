@@ -127,10 +127,10 @@ const Body = () => {
     showingTopRes = !showingTopRes;
     if (showingTopRes === true) {
       const filteredList = listOfRestaurants?.filter(
-        (res) => res.data.avgRating > 4
+        (res) => res?.info?.avgRating > 4
       );
       setFilteredRestaurants(filteredList);
-    } else setFilteredRestaurants(json.data?.cards[2]?.data?.data?.cards);
+    } else setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   };
 
   return (
