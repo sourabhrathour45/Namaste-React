@@ -4,7 +4,7 @@ import DishData from "./DishData";
 
 const RestaurantCategory = ({ itemData, isVisible, setShowIndex}) => {
 
-  // this is just a comment
+  
 
   const clickHandler = () => {
    setShowIndex(); 

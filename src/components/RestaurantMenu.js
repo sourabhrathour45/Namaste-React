@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../ultils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 import {useState} from 'react';
+import Header from "./Header";
 
 const RestaurantMenu = () => {
   let { resID } = useParams();
@@ -39,6 +40,7 @@ const RestaurantMenu = () => {
   );
 
   return (
+    <>
     <div className="flex justify-center mt-24 w-full">
       <div className="lg:w-[50%] w-11/12">
         <div className="flex justify-between">
@@ -67,6 +69,7 @@ const RestaurantMenu = () => {
       </div>
       
     </div>
+    </>
  
   );
 };
