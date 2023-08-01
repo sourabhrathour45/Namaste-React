@@ -3,7 +3,7 @@ import DishData from "./DishData";
 
 
 const RestaurantCategory = ({ itemData, isVisible, setShowIndex}) => {
-
+// Restaurant category component 
   
 
   const clickHandler = () => {
