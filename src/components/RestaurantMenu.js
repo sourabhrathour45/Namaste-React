@@ -54,7 +54,7 @@ const RestaurantMenu = () => {
         </div>
         <div className=" py-10 border border-orange-200 mr-6 mt-2 mb-8 px-4 h-[50%] bg-[#FFF6E7] rounded-lg shadow-lg" >
           <span>{avgRating}</span>
-         <span className="text-green-800">  <i class="fa-solid fa-star"></i> </span>
+         <span className="text-green-800">  <i className="fa-solid fa-star"></i> </span>
          <div className="w-[80%] border-b border-gray-700 my-2"></div>
           <h2>{totalRatingsString}</h2>
         </div>

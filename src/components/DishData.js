@@ -1,11 +1,22 @@
 import { CDN_URL } from "../ultils/constants";
+import {Link} from 'react-router-dom'
+import Cart from "./Cart"
+import {useDispatch} from 'react-redux'
+import {addItem} from '../ultils/cartSlice'
+
+
 const DishData = ({ data }) => {
-  console.log(data);
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item)=>{
+    dispatch(addItem(item))
+    console.log(item)
+  }
 
   return (
     <>
       <div>
-        {data.map((item) => (
+        {data?.map((item) => (
           <div key={item?.card?.info?.id} className="flex border-b border-orange-200">
             <div className="w-9/12">
                 <h1 className="text-lg my-4 mt-8 font-[500] text-slate-800">{item?.card?.info?.name}</h1>
@@ -19,7 +30,9 @@ const DishData = ({ data }) => {
               </p>
 
             </div>
-            <div className="w-3/12 m-4 mt-8 "><img className="rounded-lg shadow-lg" src={CDN_URL + item?.card?.info?.imageId}></img></div>
+            <div className="w-3/12 m-4 mt-8 mb-16 relative "><img className="rounded-lg shadow-lg" src={CDN_URL + item?.card?.info?.imageId}></img>
+            <button onClick={()=>handleAddItem(item)} className="px-4 py-2 bg-gradient-to-r from-orange-100 to-orange-300 rounded-lg absolute top-32 left-14 shadow-lg hover:shadow-xl hover:bg-orange-200 cursor-pointer border border-orange-300 hover:border-orange-400 ">Add Item</button>
+            </div>
           </div>
         ))}
       </div>
