@@ -14,8 +14,8 @@ export const cartSlice = createSlice({
         },
         clearCart: (state,action)=>{
             state.items.length = 0;
-        }
-
+        },
+       
     }
 })
 

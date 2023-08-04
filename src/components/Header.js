@@ -46,7 +46,7 @@ const Header = () => {
             <li className="px-6 cursor-pointer">
              
               <i className="fa-solid fa-cart-shopping text-orange-900 pr-2"></i>Cart
-              - {cart.length}
+              - {cart?.length}
             </li>
           </Link>
           <button
