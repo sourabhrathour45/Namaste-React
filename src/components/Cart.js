@@ -1,22 +1,113 @@
-import { BentoTwoTone } from '@mui/icons-material'
-import DishData from './DishData'
-import {useSelector, useDispatch} from 'react-redux'
-import {clearCart} from '../ultils/cartSlice'
+import { BentoTwoTone } from "@mui/icons-material";
+import CartItem from "./CartItem";
+import { useSelector, useDispatch } from "react-redux";
+import { clearCart } from "../ultils/cartSlice";
 
-const Cart = ()=>{
-    const cartItems = useSelector((state)=>state.cart.items)
-    const dispatch = useDispatch();
-    return(
-        <>
-        <div className="flex justify-center  ">
-        <div className='w-[50%]'>
-            <h1 className="text-center font-bold text-2xl text-orange-900 my-12">Your Cart</h1>
-            <button onClick={()=>dispatch(clearCart())} className="m-4 p-2 bg-orange-800 text-white rounded-lg" > Clear Cart </button>
-            <DishData data ={cartItems}/>
+const Cart = () => {
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.items);
+
+  const calculatePrice = () => {
+    const totalPrice = cart.reduce((accumulator, item) => {
+      return (
+        accumulator + (item.card.info.price / 100) * item.quantity ||
+        accumulator + (item.card.info.defaultPrice / 100) * item.quantity
+      );
+    }, 0);
+
+    return totalPrice.toFixed(0); // Round the total price to 2 decimal places (optional)
+  };
+
+  const toPayPrice = () => {
+    let itemsTotal = parseInt(calculatePrice(), 10);
+    let totalPrice = itemsTotal + (60 + 2 + 15);
+    return totalPrice;
+  };
+
+  const handleClearCart=()=>{
+    dispatch(clearCart());
+
+  }
+
+  return (
+    <>
+      <div className="w-full flex justify-between">
+        <div className="bg-[#FFF6E7] mx-8 font-bold text-orange-900 my-8 p-4 shadow-lg rounded-xl w-[62%]">
+          <h1 className="m-4  text-xl p-4">Add a delivery address</h1>{" "}
         </div>
+
+        <div className="flex w-[35%] ">
+          <div className="w-[100%]  mr-20">
+           
+            <div className="bg-[#FFF6E7] my-8 p-4 shadow-lg rounded-xl cursor-pointer ">
+            <h1 className="text-center font-bold text-2xl text-orange-900 my-8">
+              Your Cart
+            </h1>
+              <CartItem />
+              {cart?.length > 0 ? (
+                <div>
+                  <div className="flex flex-col items-center">
+                    <div className="w-[60%] text-center border border-dashed  border-gray-400 px-1 py-2">
+                      <span className="text-sm">Apply Coupon</span>
+                    </div>
+                  </div>
+                  <div>
+                    <h1 className="mx-4 my-6 text-slate-600 text-sm font-bold ">
+                      Bill Details
+                    </h1>
+                    <div className="flex justify-between my-2 mx-4">
+                      <span className="text-sm text-slate-700">Item Total</span>
+                      <span className="text-sm text-slate-700">
+                        ₹{calculatePrice()}
+                      </span>
+                    </div>
+                    <div className="flex justify-between my-2 mx-4">
+                      <span className="text-sm text-slate-700">
+                        Delivery Fee | 7 kms
+                      </span>
+                      <span className="text-sm text-slate-700"> ₹60</span>
+                    </div>
+                    <div className="flex justify-between my-2 mx-4">
+                      <span className="text-sm text-slate-700">
+                        Platform Fee
+                      </span>
+                      <span className="text-sm text-slate-700">₹2</span>
+                    </div>
+                    <div className="flex justify-between my-2 mx-4">
+                      <span className="text-sm text-slate-700">
+                        GST and Restaurant Charges
+                      </span>
+                      <span className="text-sm text-slate-700"> ₹15</span>
+                    </div>
+                    <div className="h-1 w-[100%] border-b border-gray-400 my-4"></div>
+                    <div className="flex justify-between my-2 mx-4">
+                      <span className="text-gray-600 font-bold">TO PAY</span>
+                      <span className="text-gray-600 font-bold">
+                        ₹{toPayPrice()}
+                      </span>
+                    </div>
+                    <div className="h-1 w-[100%] border-b border-gray-400 my-2"></div>
+                  </div>
+                  <div className="flex my-10 justify-between">
+                <button onClick={handleClearCart} className="px-3 ml-8 py-2 bg-gradient-to-r from-red-700 to-red-800 shadow-xl text-white rounded-lg ">
+                  <i className="fa-solid fa-trash pr-2 text-sm"></i>
+                  Clear Cart
+                </button>
+                <button className="px-3 mr-8 py-2 bg-gradient-to-r from-green-700 to-green-800 shadow-xl text-white rounded-lg ">
+                  <i className="fa-solid fa-right-to-bracket pr-2 text-sm"></i>
+                  Checkout
+                </button>
+              </div>
+                </div>
+                
+              ) : null}
+            </div>
+            
+          </div>
         </div>
-        </>
-    )
-}
+      </div>
+    </>
+  );
+};
 
 export default Cart;

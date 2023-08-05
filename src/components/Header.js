@@ -19,7 +19,7 @@ const Header = () => {
         <Logo />
       </Link>
       <div className="mr-14">
-        <ul className=" hidden lg:flex lg:text-xl items-center font-Inter">
+        <ul className=" hidden lg:flex lg:text-xl items-center font-Inter my-7">
           <Link to="/">
             <li className="px-6">
               <i className="fa-solid fa-house text-orange-900 pr-2"></i>
@@ -27,26 +27,30 @@ const Header = () => {
             </li>
           </Link>
           <li className="px-6">
-          <i className="fa-solid fa-layer-group text-orange-900 pr-2"></i>
+            <i className="fa-solid fa-layer-group text-orange-900 pr-2"></i>
             Your Orders
-            </li>
+          </li>
           <li className="px-6">
             <Link to="/about">
-            <i className="fa-solid fa-user text-orange-900 pr-2"></i>
+              <i className="fa-solid fa-user text-orange-900 pr-2"></i>
               About Us
-              </Link>
+            </Link>
           </li>
-          <Link to="/contact" >
-          <li className="px-6">
-          <i className="fa-solid fa-envelope text-orange-900 pr-2"></i>
-            Contact
-          </li>
+          <Link to="/contact">
+            <li className="px-6">
+              <i className="fa-solid fa-envelope text-orange-900 pr-2"></i>
+              Contact
+            </li>
           </Link>
           <Link to="/cart">
-            <li className="px-6 cursor-pointer">
-             
-              <i className="fa-solid fa-cart-shopping text-orange-900 pr-2"></i>Cart
-              - {cart?.length}
+            <li className="px-6 cursor-pointer relative">
+              {cart?.length > 0 ? (
+                <span className="absolute bottom-5 left-7 font-bold text-green-800 text-md  z-10">
+                  {cart?.length}
+                </span>
+              ) : null}
+              <i className="fa-solid fa-cart-shopping text-orange-900 pr-2 "></i>
+              Cart
             </li>
           </Link>
           <button
