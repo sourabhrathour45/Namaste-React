@@ -42,8 +42,9 @@ const Body = () => {
   const PromotedRestaurants = withPromotedLabel(Cards);
 
   const filterText = () => {
+    console.log(listOfRestaurants)
     let searchFilteredResults = listOfRestaurants.filter((res) =>
-      res.data.name.toLowerCase().includes(searchText.toLowerCase())
+      res?.info?.name?.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredRestaurants(searchFilteredResults);
   };
