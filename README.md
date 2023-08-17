@@ -20,7 +20,7 @@ Welcome to the Netmesh Food, a web application built with React.js, React Router
 
 ## Demo
 
-You can check out the live demo of the app [https://netmeshfood.vercel.app/](#).
+You can check out the live demo of the app [here](#).
 
 ## Technologies Used
 
