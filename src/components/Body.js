@@ -11,7 +11,7 @@ let toggleOn,
 
 export const Search = (props) => {
   return (
-    <div className="flex w-full lg:w-11/12 justify-center mt-12 lg:mt-16 items-center ">
+    <div className="flex w-screen justify-center  mt-12 lg:mt-16 items-center ">
       <div className="hidden lg:block">
         <Toggle
           onChange={() => toggleOn()}
@@ -43,7 +43,7 @@ const Body = () => {
 
   const filterText = () => {
     console.log(listOfRestaurants)
-    let searchFilteredResults = listOfRestaurants.filter((res) =>
+    let searchFilteredResults = listOfRestaurants?.filter((res) =>
       res?.info?.name?.toLowerCase().includes(searchText.toLowerCase())
     );
     setFilteredRestaurants(searchFilteredResults);
@@ -91,37 +91,37 @@ const Body = () => {
   }
 
   //  Displaying error message when nothing found on search
-  // if (
-  //   listOfRestaurants?.filter((res) =>
-  //     res?.data?.name?.toLowerCase().includes(searchText.toLowerCase())
-  //   ).length === 0
-  // ) {
-  //   return (
-  //     <>
-  //       <Search
-  //         searchTxt={searchText}
-  //         setSearchTxt={setSearchText}
-  //         filterTxt={filterText}
-  //       />
+  if (
+    listOfRestaurants?.filter((res) =>
+      res?.info?.name?.toLowerCase().includes(searchText.toLowerCase())
+    ).length === 0
+  ) {
+    return (
+      <>
+        <Search
+          searchTxt={searchText}
+          setSearchTxt={setSearchText}
+          filterTxt={filterText}
+        />
 
-  //       <div className="flex justify-center mt-36">
-  //         <div className="text-center">
-  //           <h1 className="text-4xl font-bold text-orange-950 ">
-  //             {" "}
-  //             No Restaurants found buddy :({" "}
-  //           </h1>
-  //           <br></br>
-  //           <h2 className="text-xl text-slate-800">
-  //             Mai Dhoondhne ko zamane me jab khana niklaa...
-  //           </h2>
-  //           <h2 className="text-xl text-slate-800 mt-4">
-  //             Pata chala ki galat leke mai pata niklaaa 😢
-  //           </h2>
-  //         </div>
-  //       </div>
-  //     </>
-  //   );
-  // }
+        <div className="flex justify-center mt-36">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-orange-950 ">
+              {" "}
+              No Restaurants found buddy :({" "}
+            </h1>
+            <br></br>
+            <h2 className="text-xl text-slate-800">
+              Mai Dhoondhne ko zamane me jab khana niklaa...
+            </h2>
+            <h2 className="text-xl text-slate-800 mt-4">
+              Pata chala ki galat leke mai pata niklaaa 😢
+            </h2>
+          </div>
+        </div>
+      </>
+    );
+  }
 
   // Refactor the code to make it more modular and avoid using global variables
   toggleOn = () => {

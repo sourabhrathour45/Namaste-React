@@ -70,9 +70,9 @@ const DishData = ({ data }) => {
                   <button onClick={() => handleAddItem(item)}>+</button>
                 </div>
               ) : (
-                <div className="  w-28 px-4 py-2 bg-gradient-to-r from-orange-100 to-orange-300 rounded-lg absolute bottom-[-24px] shadow-lg hover:shadow-xl hover:bg-orange-200 cursor-pointer border border-orange-300 hover:border-orange-400 font-semibold text-orange-900 ">
-                  <button onClick={() => handleAddItem(item)}>Add Item</button>
-                </div>
+               
+                  <button onClick={() => handleAddItem(item)} className="py-2 px-4  w-28  bg-gradient-to-r from-orange-100 to-orange-300 rounded-lg absolute bottom-[-24px] shadow-lg hover:shadow-xl hover:bg-orange-200 cursor-pointer border border-orange-300 hover:border-orange-400 font-semibold text-orange-900 ">Add Item</button>
+              
               )}
             </div>
           </div>
