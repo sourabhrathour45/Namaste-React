@@ -2,6 +2,7 @@ import { BentoTwoTone } from "@mui/icons-material";
 import CartItem from "./CartItem";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../ultils/cartSlice";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const Cart = () => {
       );
     }, 0);
 
-    return totalPrice.toFixed(0); // Round the total price to 2 decimal places (optional)
+    return totalPrice.toFixed(0); 
   };
 
   const toPayPrice = () => {
@@ -31,12 +32,12 @@ const Cart = () => {
 
   return (
     <>
-      <div className="w-full flex justify-between">
-        <div className="bg-[#FFF6E7] mx-8 font-bold text-orange-900 my-8 p-4 shadow-lg rounded-xl w-[62%]">
+      <div className=" w-[1200px] ml-auto mr-auto overflow-x-hidden flex justify-between">
+        <div className="bg-[#FFF6E7] mx-8 font-bold text-orange-900 my-8 p-4 shadow-lg rounded-xl w-[50%]">
           <h1 className="m-4  text-xl p-4">Add a delivery address</h1>{" "}
         </div>
 
-        <div className="flex w-[35%] ">
+        <div className="flex w-[45%] ">
           <div className="w-[100%]  mr-20">
            
             <div className="bg-[#FFF6E7] my-8 p-4 shadow-lg rounded-xl cursor-pointer ">
@@ -93,10 +94,12 @@ const Cart = () => {
                   <i className="fa-solid fa-trash pr-2 text-sm"></i>
                   Clear Cart
                 </button>
+                <Link to="/checkout">
                 <button className="px-3 mr-8 py-2 bg-gradient-to-r from-green-700 to-green-800 shadow-xl text-white rounded-lg ">
                   <i className="fa-solid fa-right-to-bracket pr-2 text-sm"></i>
                   Checkout
                 </button>
+                </Link>
               </div>
                 </div>
                 
