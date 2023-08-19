@@ -37,7 +37,7 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 - Create a new branch for your feature: git checkout -b feature-name
 - Make your changes and commit them: git commit -m 'Add some feature'
 - Push to the branch: git push origin feature-name
-- Submit a pull request.
+- Submit a pull request
 
 
 
